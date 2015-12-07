@@ -1,0 +1,39 @@
+<ion-view view-title="客户">
+    <ion-nav-buttons side="left">
+        <a class="button button-clear" ng-click="createNewTask()"><i class="icon ion-plus"></i></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" ng-click="logoffUser()"><i class="icon ion-log-out"></i></a>
+    </ion-nav-buttons>
+    <ion-content>
+      <ion-refresher pulling-text="下拉加载下一页" on-refresh="searchCustomers(true)"></ion-refresher>
+
+        <div class="item item-input-inset">
+
+            <label class="item-input-wrapper">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="客户名称" name="inputValue" ng-model="inputValue.keyword">
+            </label>
+            <a class="button button-small" ng-click="searchCustomers()">搜索</a>
+        </div>
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="task in tasks"
+                      type="item-text-wrap" href="#/customer/{{task.id}}" ng-click="showCustomerDetail(task)">
+
+                <h2>{{task.kehu}}</h2>
+
+                <p>{{task.riqi}}</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+
+              <!--
+                <ion-option-button class="button-calm" ng-click="dateCustomer(customer)">
+                    预约
+                </ion-option-button>
+                <ion-option-button class="button-balanced" ng-click="callHim(customer)">
+                    呼叫
+                </ion-option-button>
+              -->
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
